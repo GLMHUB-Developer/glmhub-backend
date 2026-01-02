@@ -53,5 +53,9 @@ def stk_push():
     response = requests.post(checkout_url, json=payload, headers=headers)
     return jsonify(response.json())
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # This line tells Flask to use the Port Render gives it
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
